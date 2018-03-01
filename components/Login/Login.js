@@ -33,6 +33,12 @@ export default class Login extends Component {
           value={this.state.password}
         />
         <Button
+          onPress={this.gotoSignup()}
+          title="SIGNUP"
+          style = {styles.login_button}
+          accessibilityLabel="Signup with your info to get a new user account"
+        />
+        <Button
           onPress={this.signinUser(this.state.username, this.state.password)}
           title="LOGIN"
           style = {styles.login_button}
