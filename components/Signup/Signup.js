@@ -10,12 +10,37 @@ export default class Signup extends Component {
       username: 'Enter your username..',
       email: 'Enter your email',
       password: 'Enter your password...',
-      phone_number: 'Enter your phone number'
+      phone_number: 'Enter your phone number',
+      authCode: ''
     };
   }
 
   signupUser(username, email, password, phone_number) {
-    console.log(username + " - " + email + " - " + password + " - " + phone_number);
+    Auth.signup({
+      username: username,
+      password: password,
+      attributes: {
+        phone_number: phone_number,
+        email: email
+      }
+    })
+      .then(res => {
+        console.log('successful signup: ', res);
+      })
+      .catch(err => {
+        console.log('error signing up: ', err);
+      })
+  }
+
+  confirmUser() {
+    const { authCode } = this.state.authCode;
+    Auth.confirmSignUp(this.state.username, authCode)
+      .then(res => {
+        console.log('succesful confirmation: ', res);
+      })
+      .catch(err => {
+        console.log('error confirming user: ', err);
+      })
   }
 
   gotoSignin(){

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Image, Text, TextInput, View } from 'react-native';
 
+import Amplify, { Auth } from 'aws-amplify';
+
 const styles = require('./LoginStyles');
 
 export default class Login extends Component {
@@ -12,8 +14,27 @@ export default class Login extends Component {
     };
   }
 
+  gotoSignup() {
+    // navigate to Signup screen
+  }
   signinUser(username, password) {
-    console.log(username + " - " + password);
+    Auth.signinUser(username, password)
+      .then(user => {
+        //save user in state somewhere
+      })
+      .catch(err => {
+        console.log('error sign in: ', err);
+      })
+  }
+
+  confirmSignIn() {
+    Auth.confirmSignIn(user, authCode)
+      .then(user => {
+        console.log('user: ', user);
+      })
+      .catch(err => {
+        console.log('error confirming sign in: ', err);
+      })
   }
 
   render() {
