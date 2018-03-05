@@ -8,7 +8,9 @@ export default class Signup extends Component {
     super(props);
     this.state = {
       username: 'Username',
-      password: 'Password'
+      password: 'Password',
+      email: 'Email',
+      phone: 'Phone number'
     };
   }
 
@@ -34,14 +36,28 @@ export default class Signup extends Component {
           autoCapitalize = "none"
           onFocus = { () => this.setState({password: ""})}
         />
+        <TextInput
+          style = {styles.signup_input}
+          onChangeText = {(email) => this.setState({email})}
+          value = {this.state.email}
+          autoCapitalize = "none"
+          onFocus = { () => this.setState({email: ""})}
+        />
+        <TextInput
+          style = {styles.signup_input}
+          onChangeText = {(phone) => this.setState({phone})}
+          value = {this.state.phone}
+          autoCapitalize = "none"
+          onFocus = { () => this.setState({phone: ""})}
+        />
         <TouchableOpacity onPress={this.signinUser()} style={styles.signup_button}>
           <Text style={styles.signup_text}>
-            LOGIN
+            SIGNUP
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.signinUser()}>
-          <Text style={styles.signup_button}>
-            SIGNUP
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
+          <Text style={styles.login_button}>
+            LOGIN
           </Text>
         </TouchableOpacity>
       </View>

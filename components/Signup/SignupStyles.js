@@ -36,7 +36,7 @@ module.exports = StyleSheet.create({
     fontSize: 16,
     fontWeight: '900'
   },
-  signup_button: {
+  login_button: {
     backgroundColor: '#fff',
     color: "#157DF8",
     width: 100,

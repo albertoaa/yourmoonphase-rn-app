@@ -1,12 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from './components/Login/Login'
+import { AppRegistry, StyleSheet, View } from 'react-native';
+import { SwitchNavigator } from 'react-navigation';
+
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+
+const MainNavigator = SwitchNavigator({
+  Login: { screen: Login },
+  Signup: { screen: Signup },
+  initialRouteName: 'Login',
+});
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Login />
+        <MainNavigator/>
       </View>
     );
   }
