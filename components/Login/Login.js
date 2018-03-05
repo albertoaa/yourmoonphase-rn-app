@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Button, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import Amplify, { Auth } from 'aws-amplify';
+import awsConfig from '../../src/aws-exports'
+
+Amplify.configure({Auth: awsConfig});
+
 
 const styles = require('./LoginStyles');
 
@@ -7,14 +12,18 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Username',
-      password: 'Password'
+      username: '',
+      password: ''
     };
+    this.signInUser = this.signInUser.bind(this);
   }
 
-  signinUser(username, password) {
-    console.log(username + " - " + password);
-  }
+  signInUser = () => {
+     console.log(this.state.username + " - " + this.state.password);
+     Auth.signIn (this.state.username, this.state.password)
+        .then(user => console.log(user))
+        .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -24,6 +33,7 @@ export default class Login extends Component {
           style = {styles.login_input}
           onChangeText = {(username) => this.setState({username})}
           value = {this.state.username}
+          placeholder = "Username"
           autoCapitalize = "none"
           onFocus = { () => this.setState({username: ""})}
         />
@@ -31,10 +41,12 @@ export default class Login extends Component {
           style = {styles.login_input}
           onChangeText = {(password) => this.setState({password})}
           value = {this.state.password}
+          placeholder = "Password"
           autoCapitalize = "none"
           onFocus = { () => this.setState({password: ""})}
+          secureTextEntry = {true}
         />
-        <TouchableOpacity onPress={this.signinUser()} style={styles.login_button}>
+        <TouchableOpacity onPress={this.signInUser} style={styles.login_button}>
           <Text style={styles.login_text}>
             LOGIN
           </Text>
