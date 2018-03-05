@@ -17,10 +17,11 @@ module.exports = StyleSheet.create({
     width: 200,
     height: 40,
     borderColor: 'gray',
-    color: 'gray',
+    color: 'black',
     borderWidth: 1,
     marginTop: 5,
-    marginBottom: 20
+    marginBottom: 20,
+    textAlign: 'center'
   },
   login_button: {
     backgroundColor: '#157DF8',
