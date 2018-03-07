@@ -16,7 +16,8 @@ export default class Signup extends Component {
       username: 'Username',
       password: 'Password',
       email: 'Email',
-      phone: 'Phone number'
+      phone: 'Phone number',
+      errorMessage: ''
     };
     this.signupUser = this.signupUser.bind(this);
   }
@@ -31,7 +32,7 @@ export default class Signup extends Component {
       },
     })
       .then(data => console.log(data))
-      .catch(err => console.log(err));
+      .catch(err => { this.setState({ errorMessage: err.message }) });
   }
 
   render() {
@@ -82,6 +83,9 @@ export default class Signup extends Component {
             LOGIN
           </Text>
         </TouchableOpacity>
+        <Text>
+          {this.state.errorMessage}
+        </Text>
       </View>
     );
   }
