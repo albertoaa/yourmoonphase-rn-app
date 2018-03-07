@@ -21,8 +21,7 @@ export default class Login extends Component {
 
   signInUser = () => {
      Auth.signIn (this.state.username, this.state.password)
-        .then(user => {console.log(user.username)})
-        // .catch(err => console.log(err));
+        .then(user => {this.props.navigation.navigate('Profile', user)})
         .catch(err => { this.setState({ errorMessage: err.message }) });
   };
 
