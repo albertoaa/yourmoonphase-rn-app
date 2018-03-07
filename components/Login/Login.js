@@ -13,16 +13,17 @@ export default class Login extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
     this.signInUser = this.signInUser.bind(this);
   }
 
   signInUser = () => {
-     console.log(this.state.username + " - " + this.state.password);
      Auth.signIn (this.state.username, this.state.password)
-        .then(user => console.log(user))
-        .catch(err => console.log(err));
+        .then(user => {console.log(user.username)})
+        // .catch(err => console.log(err));
+        .catch(err => { this.setState({ errorMessage: err.message }) });
   };
 
   render() {
@@ -58,6 +59,9 @@ export default class Login extends Component {
             SIGNUP
           </Text>
         </TouchableOpacity>
+        <Text>
+          {this.state.errorMessage}
+        </Text>
       </View>
     );
   }
