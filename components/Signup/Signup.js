@@ -31,7 +31,7 @@ export default class Signup extends Component {
         phone_number: this.state.phone,
       },
     })
-      .then(data => console.log(data))
+      .then(data => { this.props.navigation.navigate('Confirmation', data) })
       .catch(err => { this.setState({ errorMessage: err.message }) });
   }
 

@@ -8,7 +8,7 @@ Amplify.configure({Auth: awsConfig});
 
 const styles = require('./ProfileStyles');
 
-export default class Login extends Component {
+export default class Profile extends Component {
   constructor(props) {
     super(props);
     // this.state = {
