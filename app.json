@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "name": "Your Moon Phase App",
+    "icon": "./assets/img/app_logo.png",
+    "version": "0.2.0",
+    "slug": "your-moon-phase-app",
+    "sdkVersion": "25.0.0",
+    "ios": {
+      "bundleIdentifier": "com.yourmoonphase.app"
+    },
+    "android": {
+      "package": "com.yourmoonphase.app"
+    }
   }
 }
