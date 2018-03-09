@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, Keyboard, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import Amplify, { Auth } from 'aws-amplify';
 import awsConfig from '../../src/aws-exports'
 
@@ -27,7 +27,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style = {styles.login_container}>
+      <KeyboardAvoidingView
+        behavior="padding"
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <View style = {styles.login_container}>
         <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.login_logo}/>
         <TextInput
           style = {styles.login_input}
@@ -62,6 +66,8 @@ export default class Login extends Component {
           {this.state.errorMessage}
         </Text>
       </View>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     );
   }
 }
