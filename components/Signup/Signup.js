@@ -39,8 +39,9 @@ export default class Signup extends Component {
     return (
         <KeyboardAvoidingView
           behavior="padding"
+          style = {styles.fullSize}
         >
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false} style = {styles.fullSize}>
             <View style = {styles.signup_container}>
               <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.signup_logo}/>
               <TextInput

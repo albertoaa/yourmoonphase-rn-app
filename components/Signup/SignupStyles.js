@@ -1,7 +1,11 @@
 const React = require('react-native');
-const { StyleSheet } = React;
+const { Dimensions, StyleSheet } = React;
 
 module.exports = StyleSheet.create({
+  fullSize: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
   signup_container: {
     flex: 1,
     backgroundColor: '#fff',

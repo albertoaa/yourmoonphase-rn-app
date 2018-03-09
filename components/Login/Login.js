@@ -29,44 +29,45 @@ export default class Login extends Component {
     return (
       <KeyboardAvoidingView
         behavior="padding"
+        style = {styles.fullSize}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View style = {styles.login_container}>
-        <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.login_logo}/>
-        <TextInput
-          style = {styles.login_input}
-          onChangeText = {(username) => this.setState({username})}
-          value = {this.state.username}
-          placeholder = "Username"
-          autoCapitalize = "none"
-          onFocus = { () => this.setState({username: ""})}
-        />
-        <TextInput
-          style = {styles.login_input}
-          onChangeText = {(password) => this.setState({password})}
-          value = {this.state.password}
-          placeholder = "Password"
-          autoCapitalize = "none"
-          onFocus = { () => this.setState({password: ""})}
-          secureTextEntry = {true}
-        />
-        <TouchableOpacity onPress={this.signInUser} style={styles.login_button}>
-          <Text style={styles.login_text}>
-            LOGIN
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Signup')}
-        >
-          <Text style={styles.signup_button}>
-            SIGNUP
-          </Text>
-        </TouchableOpacity>
-        <Text>
-          {this.state.errorMessage}
-        </Text>
-      </View>
-      </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false} style={styles.fullSize}>
+          <View style = {styles.login_container}>
+            <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.login_logo}/>
+            <TextInput
+              style = {styles.login_input}
+              onChangeText = {(username) => this.setState({username})}
+              value = {this.state.username}
+              placeholder = "Username"
+              autoCapitalize = "none"
+              onFocus = { () => this.setState({username: ""})}
+            />
+            <TextInput
+              style = {styles.login_input}
+              onChangeText = {(password) => this.setState({password})}
+              value = {this.state.password}
+              placeholder = "Password"
+              autoCapitalize = "none"
+              onFocus = { () => this.setState({password: ""})}
+              secureTextEntry = {true}
+            />
+            <TouchableOpacity onPress={this.signInUser} style={styles.login_button}>
+              <Text style={styles.login_text}>
+                LOGIN
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Signup')}
+            >
+              <Text style={styles.signup_button}>
+                SIGNUP
+              </Text>
+            </TouchableOpacity>
+            <Text>
+              {this.state.errorMessage}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     );
   }
