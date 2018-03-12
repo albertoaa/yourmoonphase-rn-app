@@ -1,5 +1,5 @@
 const React = require('react-native');
-const { Dimensions, StyleSheet } = React;
+const { Dimensions, Platform, StyleSheet } = React;
 
 module.exports = StyleSheet.create({
   fullSize: {
@@ -10,43 +10,59 @@ module.exports = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    marginBottom: -30,
+    paddingBottom: 10
   },
   login_logo: {
-    width: 200,
-    height: 200,
-    resizeMode: 'contain'
+    width: 120,
+    height: 120,
+    resizeMode: 'contain',
+    marginBottom: -40,
+  },
+  login_moon: {
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
+  },
+  login_text: {
+    fontSize: 20,
+    marginBottom: 50,
+    color: '#000',
+    fontWeight: 'bold',
+    letterSpacing: 10
   },
   login_input: {
     width: 200,
     height: 40,
     borderColor: 'gray',
-    color: 'black',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     marginTop: 5,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'left',
+    fontSize: 10
   },
   login_button: {
-    backgroundColor: '#157DF8',
-    width: 100,
-    height: 40,
-    alignItems:'center',
-    paddingTop: 10,
-    marginBottom: 20,
+    backgroundColor: '#000',
+    width: Dimensions.get('window').width,
+    height: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  login_text: {
+  login_button_text: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: '900'
+    fontSize: 30,
+    fontWeight: '600',
+    letterSpacing: 10
   },
   signup_button: {
     backgroundColor: '#fff',
-    color: "#157DF8",
-    width: 100,
+    color: "lightgrey",
+    width: 200,
+    margin: 10,
     height: 20,
     fontSize: 10,
     textAlign: 'center',
     textAlignVertical: 'center'
-  }
+  },
 });

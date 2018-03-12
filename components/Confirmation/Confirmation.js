@@ -28,7 +28,7 @@ export default class Confirmation extends Component {
   render() {
     return (
       <View style = {styles.confirmation_container}>
-        <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.confirmation_logo}/>
+        <Image source={require('../../assets/img/logo_login.png')} style = {styles.confirmation_logo}/>
         <TextInput
           style = {styles.confirmation_input}
           onChangeText = {(username) => this.setState({username})}

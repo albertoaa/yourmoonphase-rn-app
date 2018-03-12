@@ -43,7 +43,7 @@ export default class Signup extends Component {
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false} style = {styles.fullSize}>
             <View style = {styles.signup_container}>
-              <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.signup_logo}/>
+              <Image source={require('../../assets/img/logo_login.png')} style = {styles.signup_logo}/>
               <TextInput
                 style = {styles.signup_input}
                 onChangeText = {(username) => this.setState({username})}

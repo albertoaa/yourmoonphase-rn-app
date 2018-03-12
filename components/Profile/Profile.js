@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 import Amplify, { Auth } from 'aws-amplify';
 import awsConfig from '../../src/aws-exports'
@@ -28,7 +28,7 @@ export default class Profile extends Component {
   render() {
     return (
       <View style = {styles.profile_container}>
-        <Image source={require('../../assets/img/logo-white-bg.png')} style = {styles.profile_logo}/>
+        <Image source={require('../../assets/img/logo_login.png')} style = {styles.profile_logo}/>
         <Text style={styles.profile_welcomeMessage}>
           Welcome {this.props.navigation.state.params.username}
         </Text>
