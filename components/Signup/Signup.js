@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { Image, Keyboard, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  Image,
+  Keyboard,
+  KeyboardAvoidingView,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Amplify, { Auth } from 'aws-amplify';
 import awsConfig from '../../src/aws-exports'
 
@@ -37,20 +47,29 @@ export default class Signup extends Component {
 
   render() {
     return (
-        <KeyboardAvoidingView
-          behavior="padding"
-          style = {styles.fullSize}
-        >
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false} style = {styles.fullSize}>
-            <View style = {styles.signup_container}>
-              <Image source={require('../../assets/img/logo_login.png')} style = {styles.signup_logo}/>
+
+        <KeyboardAvoidingView behavior = "padding"
+                              style = {styles.signup_container}>
+          <ScrollView contentContainerStyle={styles.signup_container}
+                      keyboardShouldPersistTaps='never'>
+            <View style={styles.signup_banner_container}>
+              <Image source={require('../../assets/img/signup_banner.png')}
+                     style = {styles.signup_banner}/>
+              <Text>
+                {this.state.errorMessage}
+              </Text>
+            </View>
+            <View style={styles.signup_form_container}>
+              <Text style={styles.signup_banner_text}>
+                SIGN UP
+              </Text>
               <TextInput
                 style = {styles.signup_input}
                 onChangeText = {(username) => this.setState({username})}
                 placeholder = "Username"
                 autoCapitalize = "none"
-                onFocus = { () => this.setState({username: ""})}
-              />
+                onFocus = { () => {this.setState({username: ""})}}
+                underlineColorAndroid = "#fff"/>
               <TextInput
                 style = {styles.signup_input}
                 onChangeText = {(password) => this.setState({password})}
@@ -58,7 +77,7 @@ export default class Signup extends Component {
                 autoCapitalize = "none"
                 onFocus = { () => this.setState({password: ""})}
                 secureTextEntry = { true }
-              />
+                underlineColorAndroid = "#fff"/>
               <TextInput
                 style = {styles.signup_input}
                 onChangeText = {(email) => this.setState({email})}
@@ -66,7 +85,7 @@ export default class Signup extends Component {
                 autoCapitalize = "none"
                 onFocus = { () => this.setState({email: ""})}
                 keyboardType = "email-address"
-              />
+                underlineColorAndroid = "#fff"/>
               <TextInput
                 style = {styles.signup_input}
                 onChangeText = {(phone) => this.setState({phone})}
@@ -74,26 +93,23 @@ export default class Signup extends Component {
                 autoCapitalize = "none"
                 onFocus = { () => this.setState({phone: ""})}
                 keyboardType = "phone-pad"
-              />
-              <TouchableOpacity
-                onPress={this.signupUser}
-                style={styles.signup_button}
-              >
-                <Text style={styles.signup_text}>
-                  SIGNUP
-                </Text>
-              </TouchableOpacity>
+                underlineColorAndroid = "#fff"/>
+            </View>
+            <View style={styles.signup_actions_container}>
               <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                 <Text style={styles.login_button}>
                   LOGIN
                 </Text>
               </TouchableOpacity>
-              <Text>
-                {this.state.errorMessage}
-              </Text>
+              <TouchableOpacity onPress={this.signupUser}
+                                style={styles.signup_button}>
+                <Text style={styles.signup_text}>
+                  SIGNUP
+                </Text>
+              </TouchableOpacity>
             </View>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
+          </ScrollView>
+        </KeyboardAvoidingView>
     );
   }
 }
