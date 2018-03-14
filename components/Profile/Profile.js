@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Text,
+  TouchableOpacity,
+  View } from 'react-native';
 
 import Amplify, { Auth } from 'aws-amplify';
 import awsConfig from '../../src/aws-exports'

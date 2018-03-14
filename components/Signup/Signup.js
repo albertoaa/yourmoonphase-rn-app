@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import {
   Image,
-  Keyboard,
   KeyboardAvoidingView,
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Amplify, { Auth } from 'aws-amplify';
 import awsConfig from '../../src/aws-exports'
 
@@ -47,7 +44,6 @@ export default class Signup extends Component {
 
   render() {
     return (
-
         <KeyboardAvoidingView behavior = "padding"
                               style = {styles.signup_container}>
           <ScrollView contentContainerStyle={styles.signup_container}
