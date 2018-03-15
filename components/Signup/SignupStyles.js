@@ -9,13 +9,12 @@ module.exports = StyleSheet.create({
   signup_container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   signup_banner_container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: -30,
   },
   signup_form_container: {
     flex: 3,
@@ -56,13 +55,13 @@ module.exports = StyleSheet.create({
   signup_button: {
     backgroundColor: '#C4DE9F',
     width: Dimensions.get('window').width,
-    height: 60,
+    height: 80,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   signup_text: {
     color: '#000',
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: '600',
     letterSpacing: 10
   },
