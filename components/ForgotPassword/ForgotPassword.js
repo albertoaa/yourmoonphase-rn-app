@@ -57,7 +57,7 @@ export default class ForgotPassword extends Component {
           placeholder = "RESET CODE"
           autoCapitalize = "none"
           onFocus = { () => this.setState({resetCode: ""})}
-          secureTextEntry = { true }
+          keyboardType = "numeric"
           underlineColorAndroid = "#fff"/>
         <TextInput
           style = {styles.forgot_password_input}
