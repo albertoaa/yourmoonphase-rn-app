@@ -19,14 +19,56 @@ export default class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      errorMessage: ''
+      username: '',
+      resetCode: '',
+      newPassword: '',
+      errorMessage: '',
+      resetPassword: false
     };
     this.resetPassword = this.resetPassword.bind(this);
   }
 
   resetPassword = () => {
-    console.log(this.state.email);
+    if(this.state.resetPassword === true) {
+      Auth.forgotPasswordSubmit(this.state.username, this.state.resetCode, this.state.newPassword)
+        .then(() => { this.props.navigation.navigate('Login')})
+        .catch(err => {this.setState({ errorMessage: err.message }) });
+    } else {
+      Auth.forgotPassword(this.state.username)
+        .then(() => {this.setState({ resetPassword: true }) })
+        .catch(err => {this.setState({ errorMessage: err.message }) });
+    }
+  }
+
+  renderIf = (condition, content) => {
+    if (condition) {
+      return content;
+    } else {
+      return null;
+    }
+  }
+
+  resetPasswordFields = () => {
+    return (
+      <View>
+        <TextInput
+          style = {styles.forgot_password_input}
+          onChangeText = {(resetCode) => this.setState({resetCode})}
+          placeholder = "RESET CODE"
+          autoCapitalize = "none"
+          onFocus = { () => this.setState({resetCode: ""})}
+          secureTextEntry = { true }
+          underlineColorAndroid = "#fff"/>
+        <TextInput
+          style = {styles.forgot_password_input}
+          onChangeText = {(newPassword) => this.setState({newPassword})}
+          placeholder = "NEW PASSWORD"
+          autoCapitalize = "none"
+          onFocus = { () => this.setState({newPassword: ""})}
+          secureTextEntry = { true }
+          underlineColorAndroid = "#fff"/>
+        </View>
+      )
   }
 
   render () {
@@ -56,15 +98,29 @@ export default class ForgotPassword extends Component {
               {this.state.errorMessage}
             </Text>
             <TextInput style = {styles.forgot_password_input}
-                       onChangeText = {(email) => this.setState({email})}
-                       value = {this.state.email}
-                       placeholder = "EMAIL"
+                       onChangeText = {(username) => this.setState({username})}
+                       value = {this.state.username}
+                       placeholder = "USER NAME"
                        autoCapitalize = "none"
-                       onFocus = { () => this.setState({email: ""})}
+                       onFocus = { () => this.setState({username: ""})}
                        underlineColorAndroid = "#fff"
             />
+            {this.renderIf(this.state.resetPassword, this.resetPasswordFields())}
           </View>
-          <View></View>
+          <View style={styles.forgot_password_actions_container}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
+              <Text style={styles.login_button}>
+                LOGIN
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.resetPassword}
+                              style={styles.forgot_password_button}
+            >
+              <Text style={styles.forgot_password_text}>
+                RECOVER
+              </Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     )

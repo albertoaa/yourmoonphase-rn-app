@@ -18,6 +18,10 @@ module.exports = StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  forgot_password_actions_container: {
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
   forgot_password_banner: {
     width: Dimensions.get('window').width,
     height: 200,
@@ -26,7 +30,7 @@ module.exports = StyleSheet.create ({
   forgot_password_text: {
     fontSize: 20,
     marginBottom: 20,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     letterSpacing: 10
   },
@@ -48,5 +52,28 @@ module.exports = StyleSheet.create ({
     marginBottom: 20,
     textAlign: 'left',
     fontSize: 10
-  }
+  },
+  login_button: {
+    backgroundColor: '#fff',
+    color: "lightgrey",
+    width: 200,
+    margin: 10,
+    height: 20,
+    fontSize: 10,
+    textAlign: 'center',
+    textAlignVertical: 'center'
+  },
+  forgot_password_button: {
+    backgroundColor: '#000',
+    width: Dimensions.get('window').width,
+    height: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  forgot_password_button_text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: '600',
+    letterSpacing: 10
+  },
 });
