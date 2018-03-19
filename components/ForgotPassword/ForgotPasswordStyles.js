@@ -13,6 +13,11 @@ module.exports = StyleSheet.create ({
     justifyContent: 'space-between',
     marginBottom: -10,
   },
+  forgot_password_form_container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   forgot_password_banner: {
     width: Dimensions.get('window').width,
     height: 200,
@@ -33,5 +38,15 @@ module.exports = StyleSheet.create ({
   forgot_password_banner_container: {
     alignItems: 'center',
     justifyContent: 'flex-start'
+  },
+  forgot_password_input: {
+    width: 200,
+    height: 40,
+    borderColor: 'gray',
+    borderBottomWidth: 1,
+    marginTop: 5,
+    marginBottom: 20,
+    textAlign: 'left',
+    fontSize: 10
   }
 });

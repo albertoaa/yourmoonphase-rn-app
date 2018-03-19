@@ -19,7 +19,8 @@ export default class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: ''
+      email: '',
+      errorMessage: ''
     };
     this.resetPassword = this.resetPassword.bind(this);
   }
@@ -50,7 +51,19 @@ export default class ForgotPassword extends Component {
               FILE FOR YOUR MOON PHASE ACCOUNT
             </Text>
           </View>
-          <View></View>
+          <View style={styles.forgot_password_form_container}>
+            <Text>
+              {this.state.errorMessage}
+            </Text>
+            <TextInput style = {styles.forgot_password_input}
+                       onChangeText = {(email) => this.setState({email})}
+                       value = {this.state.email}
+                       placeholder = "EMAIL"
+                       autoCapitalize = "none"
+                       onFocus = { () => this.setState({email: ""})}
+                       underlineColorAndroid = "#fff"
+            />
+          </View>
           <View></View>
         </ScrollView>
       </KeyboardAvoidingView>

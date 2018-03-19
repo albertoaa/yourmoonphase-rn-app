@@ -50,7 +50,7 @@ export default class Login extends Component {
               LOGIN
             </Text>
           </View>
-          <View style={styles.login_form}>
+          <View style={styles.login_form_container}>
             <Text>
               {this.state.errorMessage}
             </Text>
