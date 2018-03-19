@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {
   Image,
-  Keyboard,
   KeyboardAvoidingView,
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View } from 'react-native';
 import Amplify, { Auth } from 'aws-amplify';
 import awsConfig from '../../src/aws-exports'
@@ -40,59 +38,56 @@ export default class Login extends Component {
         behavior = "padding"
         style = {styles.fullSize}
       >
-        {/*<TouchableWithoutFeedback onPress={Keyboard.dismiss}*/}
-                                  {/*accessible={false} style={styles.fullSize}>*/}
-          <ScrollView contentContainerStyle = {styles.login_container}
-                      keyboardShouldPersistTaps='never'
-                      scrollEnabled={false}>
-            <View style={styles.login_banner_container}>
-              <Image source={require('../../assets/img/logo_login.png')}
-                     style = {styles.login_logo}/>
-              <Image source={require('../../assets/img/moon_clouds.png')}
-                     style = {styles.login_moon}/>
-              <Text style={styles.login_text}>
-                LOGIN
+        <ScrollView contentContainerStyle = {styles.login_container}
+                    keyboardShouldPersistTaps='never'
+                    scrollEnabled={false}>
+          <View style={styles.login_banner_container}>
+            <Image source={require('../../assets/img/logo_login.png')}
+                   style = {styles.login_logo}/>
+            <Image source={require('../../assets/img/moon_clouds.png')}
+                   style = {styles.login_moon}/>
+            <Text style={styles.login_text}>
+              LOGIN
+            </Text>
+          </View>
+          <View style={styles.login_form}>
+            <Text>
+              {this.state.errorMessage}
+            </Text>
+            <TextInput style = {styles.login_input}
+                       onChangeText = {(username) => this.setState({username})}
+                       value = {this.state.username}
+                       placeholder = "USER NAME"
+                       autoCapitalize = "none"
+                       onFocus = { () => this.setState({username: ""})}
+                       underlineColorAndroid = "#fff"/>
+            <TextInput style = {styles.login_input}
+                       onChangeText = {(password) => this.setState({password})}
+                       value = {this.state.password}
+                       placeholder = "PASSWORD"
+                       autoCapitalize = "none"
+                       onFocus = { () => this.setState({password: ""})}
+                       secureTextEntry = {true}
+                       underlineColorAndroid = "#fff"/>
+          </View>
+          <View style={styles.login_actions_container}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
+              <Text style={styles.signup_button}>
+                DON'T HAVE AN ACCOUNT?
               </Text>
-            </View>
-            <View style={styles.login_form}>
-              <Text>
-                {this.state.errorMessage}
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
+              <Text style={styles.signup_button}>
+                FORGOT PASSWORD?
               </Text>
-              <TextInput style = {styles.login_input}
-                         onChangeText = {(username) => this.setState({username})}
-                         value = {this.state.username}
-                         placeholder = "USER NAME"
-                         autoCapitalize = "none"
-                         onFocus = { () => this.setState({username: ""})}
-                         underlineColorAndroid = "#fff"/>
-              <TextInput style = {styles.login_input}
-                         onChangeText = {(password) => this.setState({password})}
-                         value = {this.state.password}
-                         placeholder = "PASSWORD"
-                         autoCapitalize = "none"
-                         onFocus = { () => this.setState({password: ""})}
-                         secureTextEntry = {true}
-                         underlineColorAndroid = "#fff"/>
-            </View>
-            <View style={styles.login_actions_container}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
-                <Text style={styles.signup_button}>
-                  DON'T HAVE AN ACCOUNT?
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
-                <Text style={styles.signup_button}>
-                  FORGOT PASSWORD?
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={this.signInUser} style={styles.login_button}>
-                <Text style={styles.login_button_text}>
-                  DISCOVER
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
-        {/*</TouchableWithoutFeedback>*/}
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.signInUser} style={styles.login_button}>
+              <Text style={styles.login_button_text}>
+                DISCOVER
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
       </KeyboardAvoidingView>
     );
   }

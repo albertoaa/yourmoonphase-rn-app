@@ -6,12 +6,14 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Profile from './components/Profile/Profile';
 import Confirmation from "./components/Confirmation/Confirmation";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 const MainNavigator = SwitchNavigator({
   Login: { screen: Login },
   Signup: { screen: Signup },
   Profile: { screen: Profile },
   Confirmation: { screen: Confirmation },
+  ForgotPassword: { screen: ForgotPassword },
   initialRouteName: 'Login',
 });
 

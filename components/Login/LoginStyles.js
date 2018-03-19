@@ -1,5 +1,5 @@
 const React = require('react-native');
-const { Dimensions, Platform, StyleSheet } = React;
+const { Dimensions, StyleSheet } = React;
 
 module.exports = StyleSheet.create({
   fullSize: {
