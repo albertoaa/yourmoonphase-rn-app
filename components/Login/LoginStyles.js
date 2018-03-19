@@ -10,19 +10,31 @@ module.exports = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    marginBottom: -30,
-    paddingBottom: 10
+    justifyContent: 'space-between',
+    marginBottom: -10,
+  },
+  login_banner_container: {
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  },
+  login_form_container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  login_actions_container: {
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   },
   login_logo: {
-    width: 120,
-    height: 120,
+    width: 100,
+    height: 100,
     resizeMode: 'contain',
     marginBottom: -40,
   },
   login_moon: {
-    width: 150,
-    height: 150,
+    width: 120,
+    height: 120,
     resizeMode: 'contain',
   },
   login_text: {
