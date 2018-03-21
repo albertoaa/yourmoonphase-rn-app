@@ -18,7 +18,6 @@ module.exports = StyleSheet.create({
     justifyContent: 'flex-start'
   },
   login_form_container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

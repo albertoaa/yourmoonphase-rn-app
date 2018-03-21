@@ -12,18 +12,15 @@ module.exports = StyleSheet.create({
     justifyContent: 'space-between',
   },
   signup_banner_container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
   signup_form_container: {
-    flex: 3,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
   signup_actions_container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-end',

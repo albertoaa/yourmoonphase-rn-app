@@ -19,7 +19,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
       errorMessage: ''
     };
@@ -27,7 +27,7 @@ export default class Login extends Component {
   }
 
   signInUser = () => {
-     Auth.signIn (this.state.username, this.state.password)
+     Auth.signIn (this.state.email, this.state.password)
         .then(user => {this.props.navigation.navigate('Profile', user)})
         .catch(err => { this.setState({ errorMessage: err.message }) });
   };
@@ -55,11 +55,11 @@ export default class Login extends Component {
               {this.state.errorMessage}
             </Text>
             <TextInput style = {styles.login_input}
-                       onChangeText = {(username) => this.setState({username})}
-                       value = {this.state.username}
-                       placeholder = "USER NAME"
+                       onChangeText = {(email) => this.setState({email})}
+                       value = {this.state.email}
+                       placeholder = "EMAIL ADDRESS"
                        autoCapitalize = "none"
-                       onFocus = { () => this.setState({username: ""})}
+                       onFocus = { () => this.setState({email: ""})}
                        underlineColorAndroid = "#fff"/>
             <TextInput style = {styles.login_input}
                        onChangeText = {(password) => this.setState({password})}

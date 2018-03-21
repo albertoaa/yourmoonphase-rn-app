@@ -14,7 +14,6 @@ module.exports = StyleSheet.create ({
     marginBottom: -10,
   },
   forgot_password_form_container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
