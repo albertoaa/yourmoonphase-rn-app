@@ -43,7 +43,7 @@ export default class Confirmation extends Component {
                     scrollEnabled={false}
         >
           <View style={styles.confirmation_banner_container}>
-            <Image source={require('../../assets/img/forgot_password_banner.png')}
+            <Image source={require('../../assets/img/confirmation_code_banner.jpg')}
                    style = {styles.confirmation_banner}
             />
             <Text style={styles.confirmation_text}>
@@ -55,15 +55,14 @@ export default class Confirmation extends Component {
             </Text>
           </View>
           <View style={styles.confirmation_code_container}>
-            <Text>
-              {this.state.errorMessage}
-            </Text>
             <TextInput
               style = {styles.confirmation_input}
               onChangeText = {(username) => this.setState({username})}
               value = {this.props.navigation.state.params.user.username}
-              placeholder = "Username"
+              placeholder = "EMAIL ADDRESS"
+              keyboardType = "email-address"
               autoCapitalize = "none"
+              underlineColorAndroid = "#fff"
             />
             <TextInput
               style = {styles.confirmation_input}
@@ -73,6 +72,9 @@ export default class Confirmation extends Component {
               onFocus = { () => this.setState({confirmation_code: ""})}
               keyboardType = "numeric"
               underlineColorAndroid = "#fff"/>
+            <Text>
+              {this.state.errorMessage}
+            </Text>
           </View>
           <View style={styles.confirmation_actions_container}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>

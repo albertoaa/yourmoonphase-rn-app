@@ -92,16 +92,17 @@ export default class ForgotPassword extends Component {
               PLEASE ENTER THE EMAIL ADDRESS WE HAVE ON {"\n"}
               FILE FOR YOUR MOON PHASE ACCOUNT
             </Text>
-          </View>
-          <View style={styles.forgot_password_form_container}>
             <Text>
               {this.state.errorMessage}
             </Text>
+          </View>
+          <View style={styles.forgot_password_form_container}>
             <TextInput style = {styles.forgot_password_input}
                        onChangeText = {(username) => this.setState({username})}
                        value = {this.state.username}
-                       placeholder = "USER NAME"
+                       placeholder = "EMAIL ADDRESS"
                        autoCapitalize = "none"
+                       keyboardType = "email-address"
                        onFocus = { () => this.setState({username: ""})}
                        underlineColorAndroid = "#fff"
             />

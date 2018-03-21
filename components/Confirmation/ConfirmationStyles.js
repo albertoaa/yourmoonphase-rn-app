@@ -15,10 +15,9 @@ module.exports = StyleSheet.create({
   },
   confirmation_banner_container: {
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'center'
   },
   confirmation_code_container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -28,7 +27,7 @@ module.exports = StyleSheet.create({
   },
   confirmation_banner: {
     width: Dimensions.get('window').width,
-    height: 200,
+    height: 150,
     resizeMode: 'contain'
   },
   confirmation_text: {
@@ -48,8 +47,6 @@ module.exports = StyleSheet.create({
     height: 40,
     borderColor: 'gray',
     borderBottomWidth: 1,
-    marginTop: 5,
-    marginBottom: 20,
     textAlign: 'left',
     fontSize: 10
   },

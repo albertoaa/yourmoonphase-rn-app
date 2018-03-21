@@ -35,7 +35,7 @@ module.exports = StyleSheet.create ({
   },
   forgot_password_help_text: {
     fontSize: 12,
-    marginBottom: 30,
+    marginTop: -30,
     color: 'lightgray',
   },
   forgot_password_banner_container: {
@@ -47,8 +47,6 @@ module.exports = StyleSheet.create ({
     height: 40,
     borderColor: 'gray',
     borderBottomWidth: 1,
-    marginTop: 5,
-    marginBottom: 20,
     textAlign: 'left',
     fontSize: 10
   },
