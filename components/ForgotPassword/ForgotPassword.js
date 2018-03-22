@@ -23,7 +23,8 @@ export default class ForgotPassword extends Component {
       resetCode: '',
       newPassword: '',
       errorMessage: '',
-      resetPassword: false
+      resetPassword: false,
+      recoverButtonText: 'RECOVER'
     };
     this.resetPassword = this.resetPassword.bind(this);
   }
@@ -64,7 +65,7 @@ export default class ForgotPassword extends Component {
           onChangeText = {(newPassword) => this.setState({newPassword})}
           placeholder = "NEW PASSWORD"
           autoCapitalize = "none"
-          onFocus = { () => this.setState({newPassword: ""})}
+          onFocus = { () => {this.setState({newPassword: ""}); this.setState({recoverButtonText: 'RESET'})}}
           secureTextEntry = { true }
           underlineColorAndroid = "#fff"/>
         </View>
@@ -118,7 +119,7 @@ export default class ForgotPassword extends Component {
                               style={styles.forgot_password_button}
             >
               <Text style={styles.forgot_password_text}>
-                RECOVER
+                {this.state.recoverButtonText}
               </Text>
             </TouchableOpacity>
           </View>
