@@ -79,7 +79,7 @@ export default class Confirmation extends Component {
           <View style={styles.confirmation_actions_container}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
               <Text style={styles.login_button}>
-                LOGIN
+                GO BACK
               </Text>
             </TouchableOpacity>
             <TouchableOpacity

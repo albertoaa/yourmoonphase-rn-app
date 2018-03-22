@@ -111,7 +111,7 @@ export default class ForgotPassword extends Component {
           <View style={styles.forgot_password_actions_container}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
               <Text style={styles.login_button}>
-                LOGIN
+                GO BACK
               </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.resetPassword}

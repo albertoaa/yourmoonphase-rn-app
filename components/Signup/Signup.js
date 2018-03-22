@@ -69,14 +69,14 @@ export default class Signup extends Component {
                 onChangeText = {(password) => this.setState({password})}
                 placeholder = "PASSWORD"
                 autoCapitalize = "none"
-                onFocus = { () => this.setState({password: ""})}
+                onFocus = { () => {this.setState({password: ""}); this.setState({errorMessage: "Passwords must contain symbols, uppercase and at least 8 characters lenght"}) }}
                 secureTextEntry = { true }
                 underlineColorAndroid = "#fff"/>
             </View>
             <View style={styles.signup_actions_container}>
               <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                 <Text style={styles.login_button}>
-                  LOGIN
+                  GO BACK
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={this.signupUser}
