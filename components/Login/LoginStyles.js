@@ -20,6 +20,7 @@ module.exports = StyleSheet.create({
   login_form_container: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 40
   },
   login_actions_container: {
     alignItems: 'center',
