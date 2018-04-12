@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View } from 'react-native';
 import Amplify, { Auth } from 'aws-amplify';
-import awsConfig from '../../src/aws-exports'
+import awsConfig, { aws_api_base_url } from '../../src/aws-exports'
 
 Amplify.configure({Auth: awsConfig});
 
@@ -28,8 +28,24 @@ export default class Login extends Component {
 
   signInUser = () => {
      Auth.signIn (this.state.email, this.state.password)
-        .then(user => {this.props.navigation.navigate('Profile', user)})
-        .catch(err => { this.setState({ errorMessage: err.message }) });
+        .then(user => {
+          const accessToken = user.signInUserSession.idToken.jwtToken;
+          fetch( aws_api_base_url + '/test/users/user/moons', {
+            method: 'GET',
+            headers: {
+              'Authorization': accessToken,
+              'Content-Type': 'application/json'
+            },
+          })
+          .then(response => {
+            data = JSON.parse(response._bodyText);
+            if (data.status = 200) {
+              data.userMoons.length == 0 ? this.props.navigation.navigate('RegisterMoon') : this.props.navigation.navigate('Profile');
+            }
+          })
+          .catch(error => { this.setState({ errorMessage: error.message }) })
+        })
+        .catch(error => { this.setState({ errorMessage: error.message }) });
   };
 
   render() {
