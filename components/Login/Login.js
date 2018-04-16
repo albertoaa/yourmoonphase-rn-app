@@ -27,9 +27,11 @@ export default class Login extends Component {
   }
 
   signInUser = () => {
+    let awsUser = null;
      Auth.signIn (this.state.email, this.state.password)
         .then(user => {
           const accessToken = user.signInUserSession.idToken.jwtToken;
+          awsUser = user;
           fetch( aws_api_base_url + '/test/users/user/moons', {
             method: 'GET',
             headers: {
@@ -40,7 +42,7 @@ export default class Login extends Component {
           .then(response => {
             data = JSON.parse(response._bodyText);
             if (data.status = 200) {
-              data.userMoons.length == 0 ? this.props.navigation.navigate('RegisterMoon') : this.props.navigation.navigate('Profile');
+              data.userMoons.length == 0 ? this.props.navigation.navigate('RegisterMoon',  { user: awsUser }) : this.props.navigation.navigate('Profile', { user: awsUser });
             }
           })
           .catch(error => { this.setState({ errorMessage: error.message }) })

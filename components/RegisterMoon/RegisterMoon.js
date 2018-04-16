@@ -20,13 +20,11 @@ export default class RegisterMoon extends Component {
     this.state = {
       registration_code: '',
     };
-    // this.signInUser = this.signOut.bind(this);
+    this.registerMoon = this.registerMoon.bind(this);
   }
 
-  signOutUser = () => {
-    Auth.signOut()
-      .then( () => this.props.navigation.navigate('Login') )
-      .catch(err => console.log(err));
+  registerMoon = () => {
+    this.props.navigation.navigate('Profile', { user: this.props.navigation.state.params.user });
   };
 
   render() {
@@ -43,16 +41,16 @@ export default class RegisterMoon extends Component {
           </View>
           <View style={styles.register_moon_container}>
             <TextInput style = {styles.register_moon_input}
-                       onChangeText = {(registration_code) => this.setState({registration_code})}
+                       onChangeText = {(registration_code) => this.setState({ registration_code })}
                        value = {this.state.registration_code}
                        keyboardType = "numeric"
                        placeholder = "ENTER HERE"
                        autoCapitalize = "none"
-                       onFocus = { () => this.setState({registration_code: ""})}
+                       onFocus = { () => this.setState({ registration_code: "" })}
                        underlineColorAndroid = "#fff"/>
           </View>
           <View style={styles.register_moon_actions_container}>
-            <TouchableOpacity style={styles.register_moon_button}>
+            <TouchableOpacity style={styles.register_moon_button} onPress={ this.registerMoon }>
               <Text style={styles.register_moon_button_text}>
                 REGISTER
               </Text>

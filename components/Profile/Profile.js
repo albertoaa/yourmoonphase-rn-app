@@ -34,7 +34,7 @@ export default class Profile extends Component {
       <View style = {styles.profile_container}>
         <Image source={require('../../assets/img/logo_login.png')} style = {styles.profile_logo}/>
         <Text style={styles.profile_welcomeMessage}>
-          Welcome {this.props.navigation.state.params.username}
+          Welcome {this.props.navigation.state.params.user.username}
         </Text>
         <TouchableOpacity onPress={this.signOutUser} style={styles.signout_button}>
           <Text style={styles.signout_text}>
