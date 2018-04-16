@@ -24,6 +24,7 @@
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
+    "react-native-letter-spacing": "0.0.6",
     "react-navigation": "^1.4.0"
   }
 }
