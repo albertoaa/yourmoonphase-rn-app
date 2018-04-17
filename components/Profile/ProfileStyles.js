@@ -3,14 +3,13 @@ const { Dimensions, StyleSheet, Platform } = React;
 
 module.exports = StyleSheet.create({
   profile_container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
   profile_banner_container: {
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
   },
   profile_banner: {
     width: Dimensions.get('window').width,
@@ -74,7 +73,6 @@ module.exports = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
-    color: 'rgba(128,128,128, 0.5)'
   },
   profile_history_bottom_top_text: {
     color: 'rgba(128,128,128, 0.3)',
@@ -102,5 +100,20 @@ module.exports = StyleSheet.create({
   profile_welcomeMessage: {
     fontSize: 20,
     marginBottom: 50
+  },
+  profile_moon_description_container: {
+    marginTop: 150,
+    width: Dimensions.get('window').width - 20,
+    backgroundColor: 'rgba(192,192,192, 0.2)'
+  },
+  profile_moon_description_capital: {
+    fontFamily: Platform.OS === 'ios' ? 'Times New Roman' : 'sans-serif',
+    fontSize: 24
+  },
+  profile_moon_description_text: {
+    margin: 20,
+    fontFamily: Platform.OS === 'ios' ? 'Times New Roman' : 'sans-serif',
+    textAlign: 'justify',
+    fontSize: 12
   }
 });

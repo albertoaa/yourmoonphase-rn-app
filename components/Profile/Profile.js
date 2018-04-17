@@ -87,14 +87,23 @@ export default class Profile extends Component {
 
           </View>
         </View>
-        <Text style={styles.profile_welcomeMessage}>
-          Welcome {this.props.navigation.state.params.user.username}
-        </Text>
-        <TouchableOpacity onPress={this.signOutUser} style={styles.signout_button}>
-          <Text style={styles.signout_text}>
-            SIGN OUT
+        <View style={styles.profile_moon_description_container}>
+          <Text style={styles.profile_moon_description_text}>
+            <Text style={styles.profile_moon_description_capital}>
+              T
+            </Text>
+            <Text>
+              hose born under the Full Moon are a rare combination of opposing forces. Creative and
+              logical, imaginative and practical, spiritual and worldly-you balance opposites. Because the
+              Full Moon is on the cusp of the waxing and warning, you often feel pulled in two directions
+              simultaneously. Your are susceptible to great swings in temperament and are likely deeply
+              emotional. You are very idealistic and constantly seek perfection. The pase contains and
+              inherenet instability, which you overcome by integrating the two polar ideas. Your
+              strenght comes from balancing forces that others see as irreconcilable.
+            </Text>
           </Text>
-        </TouchableOpacity>
+        </View>
+
       </ScrollView>
     );
   }
